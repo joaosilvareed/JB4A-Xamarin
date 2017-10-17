@@ -1,10 +1,10 @@
 # JB4A-Xamarin
 
-**Android**
+**Android Documentation**
 <br />
 [Android](http://salesforce-marketingcloud.github.io/JB4A-SDK-Android/)
 
-**iOS**
+**iOS Documentation**
 <br />
 [iOS](http://salesforce-marketingcloud.github.io/JB4A-SDK-iOS/)
 

@@ -34,10 +34,10 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="libJB4ASDK-4.7.0.020600001.linkwith.cs">
-      <DependentUpon>libJB4ASDK-4.7.0.020600001.a</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="libJB4ASDK-4.9.5.20900000.linkwith.cs">
+      <DependentUpon>libJB4ASDK-4.9.5.20900000.a</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
@@ -46,7 +46,7 @@
     <ObjcBindingCoreSource Include="Structs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ObjcBindingNativeLibrary Include="libJB4ASDK-4.7.0.020600001.a" />
+    <ObjcBindingNativeLibrary Include="libJB4ASDK-4.9.5.20900000.a" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

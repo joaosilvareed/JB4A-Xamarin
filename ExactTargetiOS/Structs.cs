@@ -57,7 +57,9 @@ namespace ExactTargetiOS
         MobilePushMessageTypeFenceEntry = 3,
         MobilePushMessageTypeFenceExit,
         MobilePushMessageTypeProximity,
-        lastMobilePushMessageTypeIndex = MobilePushMessageTypeProximity
+        MobilePushMessageTypeSilentPush,
+        MobilePushMessageTypeInbox = 8,
+        lastMobilePushMessageTypeIndex = MobilePushMessageTypeInbox
     }
 
     [Native]

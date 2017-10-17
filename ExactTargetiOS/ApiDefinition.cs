@@ -69,9 +69,9 @@ namespace ExactTargetiOS
         [NullAllowed, Export("openDirectPayload")]
         string OpenDirectPayload { get; }
 
-        // @property (getter = isRead, readwrite, nonatomic) BOOL read;
+        // @property (readonly, getter = isRead, nonatomic) BOOL read;
         [Export("read")]
-        bool Read { [Bind("isRead")] get; set; }
+        bool Read { [Bind("isRead")] get; }
 
         // @property (readonly, copy, nonatomic) NSString * _Nullable subject;
         [NullAllowed, Export("subject")]
@@ -96,9 +96,9 @@ namespace ExactTargetiOS
     [BaseType(typeof(NSObject))]
     interface ETCloudPageDataSource : IUITableViewDataSource
     {
-        // @property (nonatomic, strong) NSArray<__kindof ETCloudPage *> * _Nullable messages;
-        [NullAllowed, Export("messages", ArgumentSemantic.Strong)]
-        ETCloudPage[] Messages { get; set; }
+        // @property (readonly, copy, nonatomic) NSArray<__kindof ETCloudPage *> * _Nullable messages;
+        [NullAllowed, Export("messages", ArgumentSemantic.Copy)]
+        ETCloudPage[] Messages { get; }
 
         // @property (nonatomic, weak) UITableView * _Nullable inboxTableView;
         [NullAllowed, Export("inboxTableView", ArgumentSemantic.Weak)]
@@ -132,10 +132,6 @@ namespace ExactTargetiOS
         // @property (readonly, copy, nonatomic) NSString * _Nullable sound;
         [NullAllowed, Export("sound")]
         string Sound { get; }
-
-        // @property (readonly, copy, nonatomic) NSString * _Nullable badge;
-        [NullAllowed, Export("badge")]
-        string Badge { get; }
 
         // @property (readonly, copy, nonatomic) NSString * _Nullable category;
         [NullAllowed, Export("category")]
@@ -264,7 +260,7 @@ namespace ExactTargetiOS
         //[Verify(MethodToProperty)]
         string RemoteRoutePath { get; set; }
 
-        // @required -(NSString * _Nonnull)remoteRoutePath;
+         //@required -(NSString * _Nonnull)remoteRoutePath;
         [Abstract]
         [Export("remoteRoutePath")]
         //[Verify(MethodToProperty)]
@@ -305,26 +301,6 @@ namespace ExactTargetiOS
     [BaseType(typeof(NSObject))]
     interface ETGenericUpdate
     {
-        // @property (nonatomic) int tag;
-        [Export("tag")]
-        int Tag { get; set; }
-
-        // @property (nonatomic) NSInteger databaseIdentifier;
-        [Export("databaseIdentifier")]
-        nint DatabaseIdentifier { get; set; }
-
-        // @property (copy, nonatomic) NSData * _Nullable responseData;
-        [NullAllowed, Export("responseData", ArgumentSemantic.Copy)]
-        NSData ResponseData { get; set; }
-
-        // @property (assign, nonatomic) UIBackgroundTaskIdentifier backgroundTaskID;
-        [Export("backgroundTaskID")]
-        nuint BackgroundTaskID { get; set; }
-
-        // @property (assign, nonatomic) NSInteger httpStatusCode;
-        [Export("httpStatusCode")]
-        nint HttpStatusCode { get; set; }
-
         // -(GenericUpdateSendMethod)sendMethod;
         [Export("sendMethod")]
         //[Verify(MethodToProperty)]
@@ -372,6 +348,11 @@ namespace ExactTargetiOS
         [Export("generatePersistentDataSchemaInDatabase")]
         //[Verify(MethodToProperty)]
         bool GeneratePersistentDataSchemaInDatabase { get; }
+
+        // -(BOOL)updateSchemaInDatabase;
+        [Export("updateSchemaInDatabase")]
+        //[Verify(MethodToProperty)]
+        bool UpdateSchemaInDatabase { get; }
 
         // -(NSArray * _Nullable)insertQueryArguments;
         [NullAllowed, Export("insertQueryArguments")]
@@ -449,9 +430,9 @@ namespace ExactTargetiOS
     [BaseType(typeof(UIViewController))]
     interface ETLandingPagePresenter : IUIWebViewDelegate
     {
-        // @property (copy, nonatomic) NSString * _Nonnull landingPagePath;
+        // @property (readonly, copy, nonatomic) NSString * _Nonnull landingPagePath;
         [Export("landingPagePath")]
-        string LandingPagePath { get; set; }
+        string LandingPagePath { get; }
 
         // -(instancetype _Nullable)initForLandingPageAt:(NSString * _Nonnull)landingPage;
         [Export("initForLandingPageAt:")]
@@ -534,48 +515,49 @@ namespace ExactTargetiOS
     [BaseType(typeof(ETGenericUpdate))]
     interface ETRegion
     {
-        // @property (nonatomic, strong) NSString * _Nullable fenceIdentifier;
-        [NullAllowed, Export("fenceIdentifier", ArgumentSemantic.Strong)]
+        // @property (copy, nonatomic) NSString * _Nullable fenceIdentifier;
+        [NullAllowed, Export("fenceIdentifier")]
         string FenceIdentifier { get; set; }
 
-        // @property (nonatomic, strong) NSNumber * _Nullable latitude;
-        [NullAllowed, Export("latitude", ArgumentSemantic.Strong)]
+        // @property (copy, nonatomic) NSNumber * _Nullable latitude;
+        [NullAllowed, Export("latitude", ArgumentSemantic.Copy)]
         NSNumber Latitude { get; set; }
 
-        // @property (nonatomic, strong) NSNumber * _Nullable longitude;
-        [NullAllowed, Export("longitude", ArgumentSemantic.Strong)]
+        // @property (copy, nonatomic) NSNumber * _Nullable longitude;
+        [NullAllowed, Export("longitude", ArgumentSemantic.Copy)]
         NSNumber Longitude { get; set; }
 
-        // @property (nonatomic, strong) NSNumber * _Nullable radius;
-        [NullAllowed, Export("radius", ArgumentSemantic.Strong)]
+        // @property (copy, nonatomic) NSNumber * _Nullable radius;
+        [NullAllowed, Export("radius", ArgumentSemantic.Copy)]
         NSNumber Radius { get; set; }
 
-        // @property (nonatomic, strong) NSMutableArray * _Nullable messages;
-        [NullAllowed, Export("messages", ArgumentSemantic.Strong)]
-        NSMutableArray Messages { get; set; }
+        // @property (readonly, copy, nonatomic) NSArray * _Nullable messages;
+        [NullAllowed, Export("messages", ArgumentSemantic.Copy)]
+        //[Verify(StronglyTypedNSArray)]
+        NSObject[] Messages { get; }
 
-        // @property (nonatomic, strong) NSString * _Nullable proximityUUID;
-        [NullAllowed, Export("proximityUUID", ArgumentSemantic.Strong)]
+        // @property (copy, nonatomic) NSString * _Nullable proximityUUID;
+        [NullAllowed, Export("proximityUUID")]
         string ProximityUUID { get; set; }
 
-        // @property (nonatomic, strong) NSNumber * _Nullable majorNumber;
-        [NullAllowed, Export("majorNumber", ArgumentSemantic.Strong)]
+        // @property (copy, nonatomic) NSNumber * _Nullable majorNumber;
+        [NullAllowed, Export("majorNumber", ArgumentSemantic.Copy)]
         NSNumber MajorNumber { get; set; }
 
-        // @property (nonatomic, strong) NSNumber * _Nullable minorNumber;
-        [NullAllowed, Export("minorNumber", ArgumentSemantic.Strong)]
+        // @property (copy, nonatomic) NSNumber * _Nullable minorNumber;
+        [NullAllowed, Export("minorNumber", ArgumentSemantic.Copy)]
         NSNumber MinorNumber { get; set; }
 
-        // @property (nonatomic, strong) NSNumber * _Nullable entryCount;
-        [NullAllowed, Export("entryCount", ArgumentSemantic.Strong)]
-        NSNumber EntryCount { get; set; }
+        // @property (readonly, copy, nonatomic) NSNumber * _Nullable entryCount;
+        [NullAllowed, Export("entryCount", ArgumentSemantic.Copy)]
+        NSNumber EntryCount { get; }
 
-        // @property (nonatomic, strong) NSNumber * _Nullable exitCount;
-        [NullAllowed, Export("exitCount", ArgumentSemantic.Strong)]
-        NSNumber ExitCount { get; set; }
+        // @property (readonly, copy, nonatomic) NSNumber * _Nullable exitCount;
+        [NullAllowed, Export("exitCount", ArgumentSemantic.Copy)]
+        NSNumber ExitCount { get; }
 
-        // @property (nonatomic, strong) NSString * _Nullable regionName;
-        [NullAllowed, Export("regionName", ArgumentSemantic.Strong)]
+        // @property (copy, nonatomic) NSString * _Nullable regionName;
+        [NullAllowed, Export("regionName")]
         string RegionName { get; set; }
 
         // @property (assign, nonatomic) MobilePushGeofenceType locationType;
@@ -686,13 +668,13 @@ namespace ExactTargetiOS
     [BaseType(typeof(ETGenericUpdate))]
     interface ETMessage
     {
-        // @property (readonly, nonatomic, strong) NSString * _Nullable messageIdentifier;
-        [NullAllowed, Export("messageIdentifier", ArgumentSemantic.Strong)]
+        // @property (readonly, copy, nonatomic) NSString * _Nullable messageIdentifier;
+        [NullAllowed, Export("messageIdentifier")]
         string MessageIdentifier { get; }
 
-        // @property (nonatomic, strong) NSString * _Nullable messageName;
-        [NullAllowed, Export("messageName", ArgumentSemantic.Strong)]
-        string MessageName { get; set; }
+        // @property (readonly, copy, nonatomic) NSString * _Nullable messageName;
+        [NullAllowed, Export("messageName")]
+        string MessageName { get; }
 
         // @property (readonly, nonatomic) MobilePushMessageType messageType;
         [Export("messageType")]
@@ -702,61 +684,61 @@ namespace ExactTargetiOS
         [Export("contentType")]
         MobilePushContentType ContentType { get; }
 
-        // @property (readonly, nonatomic, strong) NSString * _Nullable alert;
-        [NullAllowed, Export("alert", ArgumentSemantic.Strong)]
+        // @property (readonly, copy, nonatomic) NSString * _Nullable alert;
+        [NullAllowed, Export("alert")]
         string Alert { get; }
 
-        // @property (readonly, nonatomic, strong) NSString * _Nullable sound;
-        [NullAllowed, Export("sound", ArgumentSemantic.Strong)]
+        // @property (readonly, copy, nonatomic) NSString * _Nullable sound;
+        [NullAllowed, Export("sound")]
         string Sound { get; }
 
-        // @property (readonly, nonatomic, strong) NSString * _Nullable badge;
-        [NullAllowed, Export("badge", ArgumentSemantic.Strong)]
+        // @property (readonly, copy, nonatomic) NSString * _Nullable badge;
+        [NullAllowed, Export("badge")]
         string Badge { get; }
 
-        // @property (readonly, nonatomic, strong) NSString * _Nullable category;
-        [NullAllowed, Export("category", ArgumentSemantic.Strong)]
+        // @property (readonly, copy, nonatomic) NSString * _Nullable category;
+        [NullAllowed, Export("category")]
         string Category { get; }
 
-        // @property (readonly, nonatomic, strong) NSArray * _Nullable keyValuePairs;
-        [NullAllowed, Export("keyValuePairs", ArgumentSemantic.Strong)]
+        // @property (readonly, copy, nonatomic) NSArray * _Nullable keyValuePairs;
+        [NullAllowed, Export("keyValuePairs", ArgumentSemantic.Copy)]
         //[Verify(StronglyTypedNSArray)]
         NSObject[] KeyValuePairs { get; }
 
-        // @property (readonly, nonatomic, strong) NSDate * _Nullable startDate;
-        [NullAllowed, Export("startDate", ArgumentSemantic.Strong)]
+        // @property (readonly, copy, nonatomic) NSDate * _Nullable startDate;
+        [NullAllowed, Export("startDate", ArgumentSemantic.Copy)]
         NSDate StartDate { get; }
 
-        // @property (readonly, nonatomic, strong) NSDate * _Nullable endDate;
-        [NullAllowed, Export("endDate", ArgumentSemantic.Strong)]
+        // @property (readonly, copy, nonatomic) NSDate * _Nullable endDate;
+        [NullAllowed, Export("endDate", ArgumentSemantic.Copy)]
         NSDate EndDate { get; }
 
-        // @property (readonly, nonatomic, strong) NSString * _Nullable siteIdentifier;
-        [NullAllowed, Export("siteIdentifier", ArgumentSemantic.Strong)]
+        // @property (readonly, copy, nonatomic) NSString * _Nullable siteIdentifier;
+        [NullAllowed, Export("siteIdentifier")]
         string SiteIdentifier { get; }
 
-        // @property (readonly, nonatomic, strong) NSString * _Nullable siteUrlAsString;
-        [NullAllowed, Export("siteUrlAsString", ArgumentSemantic.Strong)]
+        // @property (readonly, copy, nonatomic) NSString * _Nullable siteUrlAsString;
+        [NullAllowed, Export("siteUrlAsString")]
         string SiteUrlAsString { get; }
 
-        // @property (readonly, nonatomic, strong) NSString * _Nullable openDirectPayload;
-        [NullAllowed, Export("openDirectPayload", ArgumentSemantic.Strong)]
+        // @property (readonly, copy, nonatomic) NSString * _Nullable openDirectPayload;
+        [NullAllowed, Export("openDirectPayload")]
         string OpenDirectPayload { get; }
 
         // @property (readonly, nonatomic, strong) ETRegion * _Nullable relatedFence;
         [NullAllowed, Export("relatedFence", ArgumentSemantic.Strong)]
         ETRegion RelatedFence { get; }
 
-        // @property (readonly, nonatomic, strong) NSNumber * _Nullable messageLimit;
-        [NullAllowed, Export("messageLimit", ArgumentSemantic.Strong)]
+        // @property (readonly, copy, nonatomic) NSNumber * _Nullable messageLimit;
+        [NullAllowed, Export("messageLimit", ArgumentSemantic.Copy)]
         NSNumber MessageLimit { get; }
 
-        // @property (readonly, nonatomic, strong) NSNumber * _Nullable messagesPerPeriod;
-        [NullAllowed, Export("messagesPerPeriod", ArgumentSemantic.Strong)]
+        // @property (readonly, copy, nonatomic) NSNumber * _Nullable messagesPerPeriod;
+        [NullAllowed, Export("messagesPerPeriod", ArgumentSemantic.Copy)]
         NSNumber MessagesPerPeriod { get; }
 
-        // @property (readonly, nonatomic, strong) NSNumber * _Nullable numberOfPeriods;
-        [NullAllowed, Export("numberOfPeriods", ArgumentSemantic.Strong)]
+        // @property (readonly, copy, nonatomic) NSNumber * _Nullable numberOfPeriods;
+        [NullAllowed, Export("numberOfPeriods", ArgumentSemantic.Copy)]
         NSNumber NumberOfPeriods { get; }
 
         // @property (readonly, nonatomic) MobilePushMessageFrequencyUnit periodType;
@@ -767,8 +749,8 @@ namespace ExactTargetiOS
         [Export("rollingPeriod")]
         bool RollingPeriod { [Bind("isRollingPeriod")] get; }
 
-        // @property (readonly, nonatomic, strong) NSNumber * _Nullable minTripped;
-        [NullAllowed, Export("minTripped", ArgumentSemantic.Strong)]
+        // @property (readonly, copy, nonatomic) NSNumber * _Nullable minTripped;
+        [NullAllowed, Export("minTripped", ArgumentSemantic.Copy)]
         NSNumber MinTripped { get; }
 
         // @property (readonly, getter = isEphemeralMessage, nonatomic) BOOL ephemeralMessage;
@@ -783,21 +765,33 @@ namespace ExactTargetiOS
         [Export("loiteringSeconds")]
         nint LoiteringSeconds { get; }
 
-        // @property (readonly, getter = isRead, nonatomic) BOOL read;
+        // @property (readonly, nonatomic) BOOL read;
         [Export("read")]
-        bool Read { [Bind("isRead")] get; }
+        bool Read { get; }
 
-        // @property (readonly, getter = isActive, nonatomic) BOOL active;
+        // @property (readonly, nonatomic) BOOL active;
         [Export("active")]
-        bool Active { [Bind("isActive")] get; }
+        bool Active { get; }
 
         // @property (copy, nonatomic) NSString * _Nullable notificationID;
         [NullAllowed, Export("notificationID")]
         string NotificationID { get; set; }
 
-        // @property (nonatomic) BOOL hasShownForBeacon;
+        // @property (readonly, nonatomic) BOOL hasShownForBeacon;
         [Export("hasShownForBeacon")]
-        bool HasShownForBeacon { get; set; }
+        bool HasShownForBeacon { get; }
+
+        // @property (readonly, copy, nonatomic) NSString * _Nullable requestId;
+        [NullAllowed, Export("requestId")]
+        string RequestId { get; }
+
+        // @property (readonly, copy, nonatomic) NSString * _Nullable messageHash;
+        [NullAllowed, Export("messageHash")]
+        string MessageHash { get; }
+
+        // @property (readonly, copy, nonatomic) NSNumber * _Nullable statusDirty;
+        [NullAllowed, Export("statusDirty", ArgumentSemantic.Copy)]
+        NSNumber StatusDirty { get; }
 
         // -(instancetype _Nullable)initFromDictionary:(NSDictionary<__kindof NSString *,id> * _Nonnull)dict;
         [Export("initFromDictionary:")]
@@ -817,25 +811,10 @@ namespace ExactTargetiOS
         //[Verify(MethodToProperty)]
         NSUrl SiteURL { get; }
 
-        // -(BOOL)markAsRead;
-        [Export("markAsRead")]
-        //[Verify(MethodToProperty)]
-        bool MarkAsRead { get; }
-
         // -(BOOL)messageScheduledForDisplay;
         [Export("messageScheduledForDisplay")]
         //[Verify(MethodToProperty)]
         bool MessageScheduledForDisplay { get; }
-
-        // -(BOOL)markAsUnread;
-        [Export("markAsUnread")]
-        //[Verify(MethodToProperty)]
-        bool MarkAsUnread { get; }
-
-        // -(BOOL)markAsDeleted;
-        [Export("markAsDeleted")]
-        //[Verify(MethodToProperty)]
-        bool MarkAsDeleted { get; }
 
         // -(NSDate * _Nullable)getLastShownDate;
         [NullAllowed, Export("getLastShownDate")]
@@ -846,6 +825,50 @@ namespace ExactTargetiOS
         [Export("getShowCount")]
         //[Verify(MethodToProperty)]
         int ShowCount { get; }
+
+        // +(NSArray * _Nullable)getCloudPageMessages;
+        [Static]
+        [NullAllowed, Export("getCloudPageMessages")]
+        //[Verify(MethodToProperty), Verify(StronglyTypedNSArray)]
+        NSObject[] CloudPageMessages { get; }
+
+        // +(NSInteger)getReadMessageCount;
+        [Static]
+        [Export("getReadMessageCount")]
+        //[Verify(MethodToProperty)]
+        nint ReadMessageCount { get; }
+
+        // +(NSInteger)getUnreadMessageCount;
+        [Static]
+        [Export("getUnreadMessageCount")]
+        //[Verify(MethodToProperty)]
+        nint UnreadMessageCount { get; }
+
+        // +(NSInteger)getMessageCount;
+        [Static]
+        [Export("getMessageCount")]
+        //[Verify(MethodToProperty)]
+        nint MessageCount { get; }
+
+        // +(void)markAllAsRead;
+        [Static]
+        [Export("markAllAsRead")]
+        void MarkAllAsRead();
+
+        // -(BOOL)markAsRead;
+        [Export("markAsRead")]
+        //[Verify(MethodToProperty)]
+        bool MarkAsRead { get; }
+
+        // -(BOOL)markAsDeleted;
+        [Export("markAsDeleted")]
+        //[Verify(MethodToProperty)]
+        bool MarkAsDeleted { get; }
+
+        // +(void)trackInboxMessageOpened:(ETCloudPage * _Nonnull)cloudPageInboxMessage;
+        [Static]
+        [Export("trackInboxMessageOpened:")]
+        void TrackInboxMessageOpened(ETCloudPage cloudPageInboxMessage);
 
         // +(NSArray<__kindof ETMessage *> * _Nullable)getMessagesByContentType:(MobilePushContentType)contentType;
         [Static]
@@ -1067,10 +1090,6 @@ namespace ExactTargetiOS
         [Export("applicationDidFailToRegisterForRemoteNotificationsWithError:")]
         void ApplicationDidFailToRegisterForRemoteNotificationsWithError(NSError error);
 
-        // -(void)resetBadgeCount;
-        [Export("resetBadgeCount")]
-        void ResetBadgeCount();
-
         // -(void)shouldDisplayAlertViewIfPushReceived:(BOOL)desiredState;
         [Export("shouldDisplayAlertViewIfPushReceived:")]
         void ShouldDisplayAlertViewIfPushReceived(bool desiredState);
@@ -1212,16 +1231,6 @@ namespace ExactTargetiOS
         [Export("refreshWithFetchCompletionHandler:")]
         bool RefreshWithFetchCompletionHandler([NullAllowed] Action<UIBackgroundFetchResult> completionHandler);
 
-        // +(BOOL)requestPIRecommendations:(NSString * _Nonnull)mid page:(NSString * _Nonnull)page error:(NSError * _Nullable * _Nullable)error completionHandler:(void (^ _Nonnull)(NSString * _Nonnull, NSError * _Nonnull))completionHandler;
-        [Static]
-        [Export("requestPIRecommendations:page:error:completionHandler:")]
-        bool RequestPIRecommendations(string mid, string page, [NullAllowed] out NSError error, Action<NSString, NSError> completionHandler);
-
-        // +(BOOL)requestPIRecommendations:(NSString * _Nonnull)mid page:(NSString * _Nonnull)page retailer:(NSString * _Nonnull)retailer error:(NSError * _Nullable * _Nullable)error completionHandler:(void (^ _Nonnull)(NSString * _Nonnull, NSError * _Nonnull))completionHandler;
-        [Static]
-        [Export("requestPIRecommendations:page:retailer:error:completionHandler:")]
-        bool RequestPIRecommendations(string mid, string page, string retailer, [NullAllowed] out NSError error, Action<NSString, NSError> completionHandler);
-
         // +(NSArray * _Nonnull)getCloudPages;
         [Static]
         [Export("getCloudPages")]
@@ -1233,9 +1242,9 @@ namespace ExactTargetiOS
     [BaseType(typeof(UIViewController))]
     interface ETWKLandingPagePresenter : IWKNavigationDelegate
     {
-        // @property (copy, nonatomic) NSString * _Nonnull landingPagePath;
+        // @property (readonly, copy, nonatomic) NSString * _Nonnull landingPagePath;
         [Export("landingPagePath")]
-        string LandingPagePath { get; set; }
+        string LandingPagePath { get; }
 
         // -(instancetype _Nullable)initForLandingPageAt:(NSString * _Nonnull)landingPage;
         [Export("initForLandingPageAt:")]
@@ -1250,9 +1259,9 @@ namespace ExactTargetiOS
     [BaseType(typeof(NSObject))]
     interface ExactTargetEnhancedPushDataSource : IUITableViewDataSource
     {
-        // @property (nonatomic, strong) NSArray<__kindof ETMessage *> * _Nullable messages;
-        [NullAllowed, Export("messages", ArgumentSemantic.Strong)]
-        ETMessage[] Messages { get; set; }
+        // @property (readonly, copy, nonatomic) NSArray<__kindof ETMessage *> * _Nullable messages;
+        [NullAllowed, Export("messages", ArgumentSemantic.Copy)]
+        ETMessage[] Messages { get; }
 
         // @property (nonatomic, weak) UITableView * _Nullable inboxTableView;
         [NullAllowed, Export("inboxTableView", ArgumentSemantic.Weak)]
@@ -1279,10 +1288,13 @@ namespace ExactTargetiOS
     [BaseType(typeof(NSObject))]
     interface PICartItem : INSCoding, INSCopying
     {
-        // -(instancetype _Nonnull)initWithPrice:(NSNumber * _Nonnull)price quantity:(NSNumber * _Nonnull)quantity item:(NSString * _Nonnull)item __attribute__((objc_designated_initializer));
+        // -(instancetype _Nonnull)initWithPrice:(NSNumber * _Nonnull)price quantity:(NSNumber * _Nonnull)quantity item:(NSString * _Nonnull)item;
         [Export("initWithPrice:quantity:item:")]
-        [DesignatedInitializer]
         IntPtr Constructor(NSNumber price, NSNumber quantity, string item);
+
+        // -(instancetype _Nonnull)initWithPrice:(NSNumber * _Nonnull)price quantity:(NSNumber * _Nonnull)quantity item:(NSString * _Nonnull)item uniqueId:(NSString * _Nonnull)uniqueId;
+        [Export("initWithPrice:quantity:item:uniqueId:")]
+        IntPtr Constructor(NSNumber price, NSNumber quantity, string item, string uniqueId);
 
         // -(NSDictionary * _Nonnull)dictionaryRepresentation;
         [Export("dictionaryRepresentation")]

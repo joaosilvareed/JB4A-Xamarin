@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>JB4A.Xamarin.iOS</id>
+        <version>1.0.3</version>
+        <title>Journey Builder for Apps iOS SDK</title>
+        <authors>soniamartin</authors>
+        <projectUrl>https://github.com/joaosilvareed/JB4A-Xamarin</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Journey Builder for Apps iOS SDK
+Using version 4.9.5.20900000</description>
+    </metadata>
+    <files>
+        <file src="../ExactTargetiOS/bin/Release/ExactTargetiOS.dll" target="lib/Xamarin.iOS10/ExactTargetiOS.dll" />
+      </files>
+</package>
