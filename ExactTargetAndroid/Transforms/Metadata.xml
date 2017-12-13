@@ -9,77 +9,77 @@
   -->
 
 	<!--  unknown return type-->
-<!--  <attr path="/api/package[@name='com.exacttarget.etpushsdk.event']/class[@name='BeaconResponseEvent']/method[@name='fromJson']" name="managedReturn">Java.Lang.Object</attr>-->
-<!--  <attr path="/api/package[@name='com.exacttarget.etpushsdk.event']/class[@name='CloudPagesResponse']/method[@name='fromJson']" name="managedReturn">Java.Lang.Object</attr>-->
-<!--  <attr path="/api/package[@name='com.exacttarget.etpushsdk.event']/class[@name='EtAnalyticItemEvent']/method[@name='fromJson']" name="managedReturn">Java.Lang.Object</attr>-->
-<!--  <attr path="/api/package[@name='com.exacttarget.etpushsdk.event']/class[@name='GeofenceResponseEvent']/method[@name='fromJson']" name="managedReturn">Java.Lang.Object</attr>-->
-<!--  <attr path="/api/package[@name='com.exacttarget.etpushsdk.event']/class[@name='WamaItemEvent']/method[@name='fromJson']" name="managedReturn">Java.Lang.Object</attr>-->
-<!--  <attr path="/api/package[@name='com.exacttarget.etpushsdk.event']/class[@name='RegistrationEvent']/method[@name='fromJson']" name="managedReturn">Java.Lang.Object</attr>-->
+<!--  <attr path="/api/package[@name='com.salesforce.marketingcloud.event']/class[@name='BeaconResponseEvent']/method[@name='fromJson']" name="managedReturn">Java.Lang.Object</attr>-->
+<!--  <attr path="/api/package[@name='com.salesforce.marketingcloud.event']/class[@name='CloudPagesResponse']/method[@name='fromJson']" name="managedReturn">Java.Lang.Object</attr>-->
+<!--  <attr path="/api/package[@name='com.salesforce.marketingcloud.event']/class[@name='EtAnalyticItemEvent']/method[@name='fromJson']" name="managedReturn">Java.Lang.Object</attr>-->
+<!--  <attr path="/api/package[@name='com.salesforce.marketingcloud.event']/class[@name='GeofenceResponseEvent']/method[@name='fromJson']" name="managedReturn">Java.Lang.Object</attr>-->
+<!--  <attr path="/api/package[@name='com.salesforce.marketingcloud.event']/class[@name='WamaItemEvent']/method[@name='fromJson']" name="managedReturn">Java.Lang.Object</attr>-->
+<!--  <attr path="/api/package[@name='com.salesforce.marketingcloud.event']/class[@name='RegistrationEvent']/method[@name='fromJson']" name="managedReturn">Java.Lang.Object</attr>-->
 
 	
 
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk.event']/interface[@name='AnalyticItemEventListener']/method[@name='onEvent' and count(parameter)=1 and parameter[1][@type='com.exacttarget.etpushsdk.event.EtAnalyticItemEvent']]" name="managedName">OnAnalyticItemEvent</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk.event']/interface[@name='AnalyticItemEventListener']/method[@name='onEvent' and count(parameter)=1 and parameter[1][@type='com.exacttarget.etpushsdk.event.WamaItemEvent']]" name="managedName">OnWamaItemEvent</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk.data']/class[@name='Registration']" name="managedName">ETRegistration</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud.event']/interface[@name='AnalyticItemEventListener']/method[@name='onEvent' and count(parameter)=1 and parameter[1][@type='com.salesforce.marketingcloud.event.EtAnalyticItemEvent']]" name="managedName">OnAnalyticItemEvent</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud.event']/interface[@name='AnalyticItemEventListener']/method[@name='onEvent' and count(parameter)=1 and parameter[1][@type='com.salesforce.marketingcloud.event.WamaItemEvent']]" name="managedName">OnWamaItemEvent</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud.data']/class[@name='Registration']" name="managedName">ETRegistration</attr>
 
-  <remove-node path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPush']/method[@name='setNotificationRecipientClass' and count(parameter)=1 and parameter[1][@type='java.lang.Class&lt;?&gt;']]" />
-  <remove-node path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPush']/method[@name='getNotificationResourceId' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPush']/method[@name='setNotificationRecipientClass' and count(parameter)=1 and parameter[1][@type='java.lang.Class&lt;?&gt;']]" />
+  <remove-node path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPush']/method[@name='getNotificationResourceId' and count(parameter)=0]" />
 
 	
 <!--  Hiden Classes most obsolete so we don't need them-->
-  <remove-node path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETLandingPagePresenter']" />
-  <remove-node path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPush']/method[@name='getNotificationAction' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPush']/method[@name='setNotificationAction' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" />
-  <remove-node path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPush']/method[@name='getNotificationActionUri' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPush']/method[@name='setNotificationActionUri' and count(parameter)=1 and parameter[1][@type='android.net.Uri']]" />
-  <remove-node path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPush']/method[@name='setNotificationResourceId' and count(parameter)=1 and parameter[1][@type='java.lang.Integer']]" />
-  <remove-node path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushConfig.Builder']/method[@name='setPiAnalyticsEnabled' and count(parameter)=1 and parameter[1][@type='boolean']]" />
-  <remove-node path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushConfig.Builder']/method[@name='suppressGooglePlayServicesErrorNotifications' and count(parameter)=1 and parameter[1][@type='boolean']]" />
-  <remove-node path="/api/package[@name='com.exacttarget.etpushsdk.event']/interface[@name='ReadyAimFireInitCompletedEventListener']" />
+  <remove-node path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETLandingPagePresenter']" />
+  <remove-node path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPush']/method[@name='getNotificationAction' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPush']/method[@name='setNotificationAction' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" />
+  <remove-node path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPush']/method[@name='getNotificationActionUri' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPush']/method[@name='setNotificationActionUri' and count(parameter)=1 and parameter[1][@type='android.net.Uri']]" />
+  <remove-node path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPush']/method[@name='setNotificationResourceId' and count(parameter)=1 and parameter[1][@type='java.lang.Integer']]" />
+  <remove-node path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushConfig.Builder']/method[@name='setPiAnalyticsEnabled' and count(parameter)=1 and parameter[1][@type='boolean']]" />
+  <remove-node path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushConfig.Builder']/method[@name='suppressGooglePlayServicesErrorNotifications' and count(parameter)=1 and parameter[1][@type='boolean']]" />
+  <remove-node path="/api/package[@name='com.salesforce.marketingcloud.event']/interface[@name='ReadyAimFireInitCompletedEventListener']" />
 
 <!--  due to a duplicate field, method or nested type name-->
-  <remove-node path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETAnalytics']/field[@name='a']" />
-  <remove-node path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETLocationManager']/field[@name='a']" />
-  <remove-node path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETLocationManager']/field[@name='b']" />
-  <remove-node path="/api/package[@name='com.exacttarget.etpushsdk.data']/class[@name='AnalyticItem']/field[@name='a']" />
-  <remove-node path="/api/package[@name='com.exacttarget.etpushsdk.data']/class[@name='AnalyticItem']/field[@name='b']" />
+  <remove-node path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETAnalytics']/field[@name='a']" />
+  <remove-node path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETLocationManager']/field[@name='a']" />
+  <remove-node path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETLocationManager']/field[@name='b']" />
+  <remove-node path="/api/package[@name='com.salesforce.marketingcloud.data']/class[@name='AnalyticItem']/field[@name='a']" />
+  <remove-node path="/api/package[@name='com.salesforce.marketingcloud.data']/class[@name='AnalyticItem']/field[@name='b']" />
 
   <!--  new protected member declared in sealed class warnings-->
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='APP_IN_BACKGROUND']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='MESSAGE_OPENED']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='NOTIFICATION_ID']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='OPEN_TYPE_EXTRA']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='PUSH_ACTION']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='PUSH_ACTION_OPEN']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='PUSH_ACTION_OPEN_INTENT']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='PUSH_ACTION_SEND']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='REGISTRATION_SEND_ACTION']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='SEND_TYPE_CLOUDPAGE_REQUEST']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='SEND_TYPE_ET_ANALYTIC_EVENTS']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='SEND_TYPE_EXTRA']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='SEND_TYPE_GEOFENCE_REQUEST']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='SEND_TYPE_PROXIMITY_REQUEST']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='SEND_TYPE_REGISTRATION']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='ACTIVITY_PAUSED_REQUEST_CODE']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='SEND_TYPE_WAMA_ANALYTIC_EVENTS']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='FORCE_REGISTRATION_SEND']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='GCM_REGISTRATION_ACTION']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='PREDICTIVE_INTELLIGENCE_REQ_TYPE']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='PREDICTIVE_INTELLIGENCE_URL']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='SEND_TYPE_CUSTOM_APP_REQUEST']" name="visibility">private</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushReceiver']/field[@name='SEND_TYPE_PREDICTIVE_INTELLIGENCE_REQUEST']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='APP_IN_BACKGROUND']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='MESSAGE_OPENED']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='NOTIFICATION_ID']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='OPEN_TYPE_EXTRA']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='PUSH_ACTION']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='PUSH_ACTION_OPEN']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='PUSH_ACTION_OPEN_INTENT']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='PUSH_ACTION_SEND']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='REGISTRATION_SEND_ACTION']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='SEND_TYPE_CLOUDPAGE_REQUEST']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='SEND_TYPE_ET_ANALYTIC_EVENTS']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='SEND_TYPE_EXTRA']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='SEND_TYPE_GEOFENCE_REQUEST']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='SEND_TYPE_PROXIMITY_REQUEST']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='SEND_TYPE_REGISTRATION']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='ACTIVITY_PAUSED_REQUEST_CODE']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='SEND_TYPE_WAMA_ANALYTIC_EVENTS']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='FORCE_REGISTRATION_SEND']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='GCM_REGISTRATION_ACTION']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='PREDICTIVE_INTELLIGENCE_REQ_TYPE']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='PREDICTIVE_INTELLIGENCE_URL']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='SEND_TYPE_CUSTOM_APP_REQUEST']" name="visibility">private</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushReceiver']/field[@name='SEND_TYPE_PREDICTIVE_INTELLIGENCE_REQUEST']" name="visibility">private</attr>
   
 <!--  has unknow base type-->
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk.util']/class[@name='g']" name="obfuscated">false</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk.util']/class[@name='k']" name="obfuscated">false</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk.util']/class[@name='m']" name="obfuscated">false</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETLocationManager.c']" name="obfuscated">false</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud.util']/class[@name='g']" name="obfuscated">false</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud.util']/class[@name='k']" name="obfuscated">false</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud.util']/class[@name='m']" name="obfuscated">false</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETLocationManager.c']" name="obfuscated">false</attr>
 
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETLocationService' and @extends='android.app.IntentService']" name="extends">mono.android.app.IntentService</attr>
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETPushService' and @extends='android.app.IntentService']" name="extends">mono.android.app.IntentService</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETLocationService' and @extends='android.app.IntentService']" name="extends">mono.android.app.IntentService</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETPushService' and @extends='android.app.IntentService']" name="extends">mono.android.app.IntentService</attr>
 
 
 <!-- Inconsistent accessibility: parameter type `Com.Exacttarget.Etpushsdk.ETLocationManager.C' is less accessible than method `Com.Exacttarget.Etpushsdk.ETAnalytics.A(Com.Exacttarget.Etpushsdk.Data.Region, Com.Exacttarget.Etpushsdk.ETLocationManager.C, Java.Lang.Integer)'-->
-  <attr path="/api/package[@name='com.exacttarget.etpushsdk']/class[@name='ETLocationManager.c']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.salesforce.marketingcloud']/class[@name='ETLocationManager.c']" name="visibility">public</attr>
 </metadata>
 

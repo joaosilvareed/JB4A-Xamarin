@@ -1,9 +1,9 @@
 
 using Com.Exacttarget.Etpushsdk.Event;
 
-namespace Com.Exacttarget.Etpushsdk
+namespace com.salesforce.marketingcloud
 {
-    public partial class ETAnalytics
+    public partial class analytics
     {
         public void OnAnalyticItemEvent(EtAnalyticItemEvent p0)
         {
